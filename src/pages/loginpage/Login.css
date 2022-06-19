@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Courier New', Courier, monospace; */
+  }
+  body {
+      background-color: #60a3d9;
+      /* background-image: url(https://images.mid-day.com/images/images/2022/apr/Pills-a_d.jpg); */
+    }
+  
+  
+    input {
+      width: 80%;
+    padding: 8px;
+    margin: 6px;
+    border-radius: 6px;
+    /* background-color: rgb(113, 177, 113); */
+    /* color: azure; */
+    align-items: center;
+    
+    }
+  
+     
+  
+    /* button {
+      appearance: none;
+      background: none;
+      border: none;
+      outline: none;
+    } */
+  
+  
+  .App{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+  }
+  .inner-form-login {
+    width: 450px;
+    height: 400px;
+    margin: auto;
+    border-radius: 4px;
+    /* SAME AS 16px */
+    padding: 1rem;
+   
+    background-color: #c3e0e5;
+  }
+  
+  /* form {
+    display: block;
+    position: relative;
+  } */
+  
+  input:hover {
+    color: rgb(11, 66, 129);
+  }
