@@ -6,6 +6,7 @@ import HomePage from './pages/homepage/HomePage';
 import Login from './pages/loginpage/Login';
 import SignUpForm from './pages/signup/SignUpForm';
 import Nav from './pages/share/Nav';
+import MainPage from './pages/mainpage/MainPage';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       <Route path='/' element={<HomePage/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/signup' element={<SignUpForm/>}/>
+      <Route path='/mainpage' element={<MainPage/>} />
 
 
     </Routes>

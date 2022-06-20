@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Courier New", Courier, monospace;
+  /* font-family: "Courier New", Courier, monospace; */
 }
 body {
   background-color: #60a3d9;
@@ -43,6 +43,21 @@ input {
   background-color: #c3e0e5;
 }
 
+.terms-div {
+  background-color: #c3e0e5;
+  margin: 30px;
+}
+
+.siignup-terms {
+display: flex;
+justify-content: center;
+}
+.siignup-welcome {
+  display: flex;
+  justify-content: center;
+  font-size: xx-large;
+  margin: 10px;
+  }
 /* form {
     display: block;
     position: relative;

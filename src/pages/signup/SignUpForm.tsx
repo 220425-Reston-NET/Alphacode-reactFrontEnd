@@ -1,11 +1,14 @@
 import React from "react";
-import './SignUpForm.css'
+import "./SignUpForm.css";
 
 function SignUpForm() {
   return (
     <>
+            <h4 className="siignup-welcome">Sign up for your free MedTrack account</h4>
+
+            <br />
+
       <form>
-        <h4>sign up for your free MedTrack account</h4>
 
         <div className="inner-form">
           <h2>Sign Up</h2>
@@ -13,11 +16,7 @@ function SignUpForm() {
           {/* {error != "" ? <div className="error">{error}</div> : ""} */}
           <div className="form-group">
             <label htmlFor="name">First Name: </label>
-            <input
-              className="form-control form-control-lg"
-              type="text"
-            
-            />
+            <input className="form-control form-control-lg" type="text" />
           </div>
           <div className="form-group">
             <label htmlFor="lastname"> Last Name:</label>
@@ -39,10 +38,10 @@ function SignUpForm() {
         </div>
       </form>
       <div className="terms-div">
-      <p>
-        By clicking the Submit button, you agree that you're awesome <br />
-        <a href="#">awesome terms and condition</a>
-      </p>
+        <p className="siignup-terms">
+          By clicking the Submit button, you agree that you're awesome
+          <a href="#">awesome terms and condition</a>
+        </p>
       </div>
     </>
   );
