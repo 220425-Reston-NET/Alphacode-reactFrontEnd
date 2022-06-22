@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
@@ -7,6 +7,7 @@ import Login from './pages/loginpage/Login';
 import SignUpForm from './pages/signup/SignUpForm';
 import Nav from './pages/share/Nav';
 import MainPage from './pages/mainpage/MainPage';
+//import { Inject, ScheduleComponent, Day, Week, WorkWeek, Month, Agenda } from '@syncfusion/ej2-react-schedule';
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
     email: "kabba@kabba.com",
     password: "kabba123"
   }
-  const [userinfo, setUserInfo] = useState({name: "", email: ""});
+  const [userinfo, setUserInfo] = useState({ name: "", email: "" });
   const [errormessage, setErroMessage] = useState("");
 
   const Signin = (details: any) => {
@@ -22,17 +23,18 @@ function App() {
   }
   return (
 
-   <>
-   <Nav/>
-   <Routes>
-      <Route path='/' element={<HomePage/>}/>
-      <Route path='/login' element={<Login/>}/>
-      <Route path='/signup' element={<SignUpForm/>}/>
-      <Route path='/mainpage' element={<MainPage/>} />
-
-
-    </Routes>
-   </>
+    <>
+      <Nav />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<SignUpForm />} />
+        <Route path='/mainpage' element={<MainPage />} />
+      </Routes>
+      {/* <ScheduleComponent>
+          <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
+      </ScheduleComponent> */}
+    </>
   );
 }
 
