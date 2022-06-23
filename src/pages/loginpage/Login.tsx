@@ -37,13 +37,13 @@ function Login() {
 
   // using async to fetch user info to login from DB
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    // e.preventDefault
+    e.preventDefault();
 
     fetch(
       "http://medtrack-env.eba-sqq54brs.us-east-1.elasticbeanstalk.com/User/SearchUserByEmailAndPassword" +
         new URLSearchParams({
-          userEmail: "userEmail",
-          userPassword: "userPassword",
+          userEmail: userEmail,
+          userPassword: userPassword,
         }),
       {}
     )
@@ -77,7 +77,6 @@ function Login() {
 
       <p className="login-welcome">
         Welcome back. MedTrak hope you find strength with each new day.
-       
       </p>
       {/* SubmitHandler to getuserinf */}
       <form onSubmit={onSubmit}>
@@ -104,10 +103,10 @@ function Login() {
               onChange={GetCustomerPassword}
             ></input>
           </div>
-          <Link className="poke-link" to={`/drug${userEmail}`}>
-            {/* <button>{userEmail}</button> */}
-            <input type={"submit"} value={"LOGIN"} />
-          </Link>
+          {/* <Link className="poke-link" to={`/drug${userEmail}`}> */}
+          {/* <button>{userEmail}</button> */}
+          <input type={"submit"} value={"LOGIN"} />
+          {/* </Link> */}
         </div>
       </form>
     </>

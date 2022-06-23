@@ -132,6 +132,10 @@ function DrugData() {
   // results.drug.blah
   return (
     <div className="view-container">
+        <Link className="navbar-brand" to={`/addmeds`}>
+          {/* <button>{userEmail}</button> */}
+          <input type={"submit"} value={"AddMeds"} />
+          </Link>
         <div className="view-container">
 
             <h2>user Info from db goes here</h2>

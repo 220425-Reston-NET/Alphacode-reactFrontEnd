@@ -62,6 +62,11 @@ function Nav() {
                 Page to show after log in
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/addmeds" className="nav-link">
+                
+              </Link>
+            </li>
             {/* <li className="nav-item">
               <Link to="/mainpage" className="nav-link">  Iner paaaggee</Link>
             </li> */}

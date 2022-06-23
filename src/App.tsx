@@ -10,9 +10,8 @@ import MedTrak from "./medtraklogo/medtrak.png";
 import ContactUs from "./pages/contactus/ContactUs";
 import InnerPageOne from "./pages/mainpages/InnerPageOne";
 import DrugData from "./pages/drugdata/DrugData";
+import AddMedicine from "./pages/addmedicine/AddMedicine";
 import Drug from "./pages/drugdata/DrugData";
-
-
 
 function App() {
   // const mainUser = {
@@ -26,8 +25,6 @@ function App() {
   //   console.log(details)
   // }
 
-
-
   return (
     <>
       <div style={{ backgroundImage: `url(${MedTrak})` }}></div>
@@ -38,12 +35,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUpForm />} />
         <Route path="/mainpage" element={<InnerPageOne />} />
-        <Route path="/help" element={<ContactUs/>} />
-        <Route path="/drug" element={<DrugData/>} />
+        <Route path="/help" element={<ContactUs />} />
+        <Route path="/drug" element={<DrugData />} />
         {/* <Route path="/model" element={<Drug/>} /> */}
-        
-
-
+        <Route path="/addmeds" element={<AddMedicine />} />
 
         <Route path="/about-paragraph" element={<HomePage />} />
       </Routes>
