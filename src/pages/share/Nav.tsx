@@ -30,13 +30,12 @@ function Nav() {
           <ul className="navbar-nav">
             <li className="nav-item">
               <Link to="/" className="nav-link">
-                {" "}
-                Home{" "}
+                <big>Home</big>
               </Link>
             </li>
             <li>
               <Link to="help" className="nav-link">
-                Help
+                <big>Help</big>
               </Link>
             </li>
             {/* <li>
@@ -47,15 +46,13 @@ function Nav() {
 
             <li className="nav-item">
               <Link to="/signup" className="nav-link">
-                {" "}
-                Register
+                <big> Register</big>
               </Link>
             </li>
             {/* adding inner pages on nav for testing purpose */}
             <li className="nav-item">
               <Link to="/login" className="nav-link">
-                {" "}
-                Login Page{" "}
+               <big> Login</big>
               </Link>
             </li>
 

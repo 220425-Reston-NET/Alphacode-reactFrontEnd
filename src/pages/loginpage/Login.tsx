@@ -42,8 +42,8 @@ function Login() {
     fetch(
       "http://medtrack-env.eba-sqq54brs.us-east-1.elasticbeanstalk.com/User/SearchUserByEmailAndPassword" +
         new URLSearchParams({
-          userEmail: "GetCustomerEmail",
-          userPassword: "GetCustomerPassword",
+          userEmail: "userEmail",
+          userPassword: "userPassword",
         }),
       {}
     )
