@@ -6,7 +6,12 @@ import HomePage from './pages/homepage/HomePage';
 import Login from './pages/loginpage/Login';
 import SignUpForm from './pages/signup/SignUpForm';
 import Nav from './pages/share/Nav';
-import MainPage from './pages/mainpage/MainPage';
+import MedTrak from "./medtraklogo/medtrak.png";
+import InnerPageOne from "./pages/mainpages/InnerPageOne";
+import ContactUs from "./pages/contactus/ContactUs";
+import DrugData from "./pages/drugdata/DrugData";
+
+
 //import { Inject, ScheduleComponent, Day, Week, WorkWeek, Month, Agenda } from '@syncfusion/ej2-react-schedule';
 
 
