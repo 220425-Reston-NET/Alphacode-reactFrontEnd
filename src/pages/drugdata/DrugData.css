@@ -1,0 +1,11 @@
+.view-container{
+    margin-top: 8rem;
+    padding: 10rem;
+}
+
+.drug-search{
+    width: 20%;
+    padding: 10px;
+    margin: 2rem;
+    border-radius: 6px;
+}

@@ -25,13 +25,22 @@
 }
 
 .alert-info {
-  padding: 15px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 20px;
+  padding: 60px;
   /* border: 1px solid transparent; */
   border-radius: 10px;
 }
+.aside-div{
+  background-color: aliceblue;
+  margin: 20px;
+  padding: 60px;
+}
 
+footer{
+  background-color: rgb(214, 30, 30);
+  display: flex;
+  justify-content: center;
+}
 /* .image{
     padding: 10px;
     margin: 10px;
