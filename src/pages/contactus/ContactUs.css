@@ -1,0 +1,19 @@
+
+.contact-welcome{
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    padding: 2rem;
+    margin: 3rem;
+}
+
+#request {
+    width: 450px;
+    /* height: 800px; */
+    margin: auto;
+    border-radius: 4px;
+    /* SAME AS 16px */
+    /* padding: 6rem; */
+   
+    background-color: #c3e0e5;
+}

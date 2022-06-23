@@ -1,15 +1,17 @@
 import React from "react";
+import "./Nav.css"
 import { Link } from "react-router-dom";
 
 function Nav() {
   return (
-    <nav className="navbar  navbar-expand-lg navbar-dark bg-dark">
+    // header = nav
+    <nav id="navbar" className="navbar  navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         {/* <a className="navbar-brand" href="#">
          MedTrak
         </a> */}
         {/* turn medtrak to navbar back to home page */}
-        <Link to="/" className="navbar-brand" >  MedTrak </Link>
+        <Link id="medtrak" to="/" className="navbar-brand" >  MedTrak </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -25,7 +27,13 @@ function Nav() {
           
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link to="/" className="nav-link">  Home </Link>
+              <Link  to="/" className="nav-link">  Home </Link>
+            </li>
+            <li>
+              <Link to="help" className="nav-link">Help</Link>
+            </li>
+            <li>
+              <Link to={{  pathname: "about-paragraph"}} className="nav-link">About us</Link>
             </li>
             <li className="nav-item">
               <Link to="/login" className="nav-link"> Login Page </Link>
@@ -33,6 +41,16 @@ function Nav() {
             <li className="nav-item">
               <Link to="/signup" className="nav-link">  Sign Up Form</Link>
             </li>
+            {/* adding inner pages on nav for testing purpose */}
+
+            <li className="nav-item">
+              <Link to="/drug" className="nav-link">  check drug info</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/mainpage" className="nav-link">  Iner paaaggee</Link>
+            </li>
+
+
             {/* <div className="searchInput-div">
                <form className="form-inline my-2 my-lg-0">
                <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
