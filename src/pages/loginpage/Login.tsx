@@ -1,77 +1,98 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useId, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import "./Login.css";
 
-function Login({}) {
+function Login() {
+  let userEmail = "";
+  let userPassword = "";
   // make a function if loging info matches are user in db = welcome page else
   // user not found message display.
-  const [userInDB, setUserInfo] = useState([]);
+  const [users, setUser] = useState({
+    userID: 0, //what datatype isreal want
+    name: "",
+    email: "",
+    password: "",
+  });
 
-  
+  function GetCustomerEmail(e: React.ChangeEvent<HTMLInputElement>) {
+    userEmail = e.target.value;
+    console.log(userEmail);
+  }
 
-  useEffect(() => {
+  function GetCustomerPassword(e: React.ChangeEvent<HTMLInputElement>) {
+    userPassword = e.target.value;
+    console.log(userPassword);
+  }
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const [userInDB, setUserInfo] = useState([]);
+  // const [isLogin, setLogin] = useState(false);
 
-    // using async to fetch user info to login from DB
-       async function getUserLoginInfo() {
-        //  change this to get data from server
-         let response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=151");
-         let userInfoFromDB = await response.json();
-         console.log(userInfoFromDB)
+  // useEffect(() => {
+  //   let userName = searchParams.get("User");
+  //   let userEmail = searchParams.get("userEmail");
+  //   let userPassword = searchParams.get("UserPassword");
 
-        }
-        getUserLoginInfo()
+  // SearchUserByEmailAndPassword
+  // `http://medtrack-env.eba-sqq54brs.us-east-1.elasticbeanstalk.com/${userEmail}/${userPassword}`
 
-      //   function loginClickHandler(){
-      //     console.log("Button Clicked!")
-      // }
-  }, [])
+  // using async to fetch user info to login from DB
+  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    // e.preventDefault
 
-  
- 
-//  // Hooks
-//   const [details, setDetails] = useState({ name: "", email: "", password: "" });
+    fetch(
+      "http://medtrack-env.eba-sqq54brs.us-east-1.elasticbeanstalk.com/User/SearchUserByEmailAndPassword" +
+        new URLSearchParams({
+          userEmail: "userEmail",
+          userPassword: "userPassword",
+        }),
+      {}
+    )
+      .then((response) => response.json())
+      .then((users) => {
+        // change/ attached user to user id in db
+        setUser((previousData) => users);
+      });
+  }
 
-//   const SubmitHandler = () => {
-//     // e.preventDefault();
+  //   async function getUserLoginInfo() {
+  //     //  change this to get data from server
+  //     let response = await fetch(
+  //       "http://medtrack-env.eba-sqq54brs.us-east-1.elasticbeanstalk.com/User/SearchUserByEmailAndPassword"
+  //     );
+  //     let responseBody = await response.json(); // should this stringify to json format ?
+  //     console.log(responseBody);
+  //     setLogin(responseBody);
 
-//     Login(details);
-//   };
+  //   }
+  //   getUserLoginInfo();
+  // }, []);
+  // function  to show inner page when login is true
+
   return (
     <>
-    {/* <button onSubmit={loginClickHandler}>Click Me</button> */}
-    <br />
-    <br />
-  <hr />
+      {/* <button onSubmit={loginClickHandler}>Click Me</button> */}
+      <br />
+      <br />
+      <hr />
 
-      <p className="login-welcome">Welcome back. MedTrak hope you find strength with each new day, with each pill.</p>
+      <p className="login-welcome">
+        Welcome back. MedTrak hope you find strength with each new day.
+       
+      </p>
       {/* SubmitHandler to getuserinf */}
-      <form onSubmit={getUserLoginInfo}>
+      <form onSubmit={onSubmit}>
         <div className="inner-form-login">
-          <h2>Login</h2>
+          <h2>Please login using your signed up information</h2>
           {/* check for erro then display it => set error in else  */}
           {/* {error != "" ? <div className="error">{error}</div> : ""} */}
-          <div className="form-group">
-            <label htmlFor="name"> Full Name</label>
-            {/* omchange  to grab login info */}
-            <input
-              className="form-control form-control-lg"
-              type="text"
-              name="name"
-              id="name"
-              // onChange={(e) => setDetails({ ...details, name: e.target.value })}
-              // value={details.name}
-            ></input>
-          </div>
+          {/* name="pokeName" onChange={updatePokeName} */}
           <div className="form-group">
             <label htmlFor="email"> Email Address </label>
             <input
               className="form-control form-control-lg"
               type="email"
-              name="email"
-              id="email"
-              // onChange={(e) =>
-              //   setDetails({ ...details, email: e.target.value })
-              // }
-              // value={details.email}
+              name="userEmail"
+              onChange={GetCustomerEmail}
             ></input>
           </div>
           <div className="form-group">
@@ -79,15 +100,14 @@ function Login({}) {
             <input
               className="form-control form-control-lg"
               type="password"
-              name="password"
-              id="password"
-              // onChange={(e) =>
-              //   setDetails({ ...details, password: e.target.value })
-              // }
-              // value={details.password}
+              name="userPassword"
+              onChange={GetCustomerPassword}
             ></input>
           </div>
-          <input type={"submit"} value={"LOGIN"} />
+          <Link className="poke-link" to={`/drug${userEmail}`}>
+            {/* <button>{userEmail}</button> */}
+            <input type={"submit"} value={"LOGIN"} />
+          </Link>
         </div>
       </form>
     </>
@@ -95,7 +115,3 @@ function Login({}) {
 }
 
 export default Login;
-function getUserLoginInfo() {
-  throw new Error("Function not implemented.");
-}
-

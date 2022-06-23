@@ -67,3 +67,10 @@ justify-content: center;
 input:hover {
   color: rgb(11, 66, 129);
 }
+
+/* style submit btn  */
+/* .submit-style{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */

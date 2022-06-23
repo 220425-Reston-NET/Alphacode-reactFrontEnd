@@ -7,9 +7,8 @@
     justify-content: space-between;
 
 } */
-body{
-      /* background-image: url(/src/medtraklogo/medtrak.png); */
-
+body {
+  /* background-image: url(/src/medtraklogo/medtrak.png); */
 }
 #navbar {
   position: fixed;
@@ -32,27 +31,27 @@ body{
   letter-spacing: 3px;
 }
 
-.nav-link{
-    font-weight: 800;
-  font-size: 1rem;
+.nav-link {
+  font-weight: 800;
+  font-size: 1.5rem;
 }
 
 .nav-item {
   font-weight: 800;
-  font-size: 1rem;
+  font-size: 2rem;
 }
 
 .navbar-nav {
-  position: relative;
+  /* position: relative; */
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: end;
+  align-items: end;
 }
 
 /* .image{ */
-    /* position: relative; */
-    /* width: 100%; */
-    /* height: 100vh; */
-    /* background-color: url(medtrak.png); */
-    /* background-size: cover; */
+/* position: relative; */
+/* width: 100%; */
+/* height: 100vh; */
+/* background-color: url(medtrak.png); */
+/* background-size: cover; */
 /* } */
