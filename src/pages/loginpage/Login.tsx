@@ -1,5 +1,5 @@
 import React, { useEffect, useId, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import "./Login.css";
 
 function Login() {
@@ -23,36 +23,31 @@ function Login() {
     userPassword = e.target.value;
     console.log(userPassword);
   }
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // const [userInDB, setUserInfo] = useState([]);
-  // const [isLogin, setLogin] = useState(false);
 
-  // useEffect(() => {
-  //   let userName = searchParams.get("User");
-  //   let userEmail = searchParams.get("userEmail");
-  //   let userPassword = searchParams.get("UserPassword");
-
-  // SearchUserByEmailAndPassword
-  // `http://medtrack-env.eba-sqq54brs.us-east-1.elasticbeanstalk.com/${userEmail}/${userPassword}`
-
-  // using async to fetch user info to login from DB
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     fetch(
-      "http://medtrack-env.eba-sqq54brs.us-east-1.elasticbeanstalk.com/User/SearchUserByEmailAndPassword" +
+      "http://medtrack-env.eba-sqq54brs.us-east-1.elasticbeanstalk.com/User/SearchUserByEmailAndPassword?" +
         new URLSearchParams({
-          userEmail: userEmail,
-          userPassword: userPassword,
-        }),
-      {}
+          Email: userEmail,
+          Password: userPassword,
+        })
+      // {}
     )
       .then((response) => response.json())
       .then((users) => {
         // change/ attached user to user id in db
         setUser((previousData) => users);
+
+        goToNewCustInfo();
       });
   }
+
+  const navigate = useNavigate();
+  const goToNewCustInfo = () => {
+    navigate("/DrugData");
+  };
 
   //   async function getUserLoginInfo() {
   //     //  change this to get data from server

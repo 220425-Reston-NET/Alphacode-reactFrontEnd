@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./AddMedicine.css";
 
 function AddMedicine() {
+  let userID = 0;
   let medName = "";
   let medDose = 0;
 
@@ -9,7 +10,7 @@ function AddMedicine() {
 
   const [meds, setMeds] = useState([
     {
-      userId: 0,
+      userID: 0,
       medicine: "",
       medicineDose: 0,
       medicineQuantity: 0,
@@ -23,6 +24,11 @@ function AddMedicine() {
     console.log(medName);
   }
 
+  function UpdateuserID(e: React.ChangeEvent<HTMLInputElement>) {
+    userID = +e.target.value;
+    console.log(userID);
+  }
+
   function UpdateMedDose(e: React.ChangeEvent<HTMLInputElement>) {
     medDose = +e.target.value;
     console.log(medDose);
@@ -34,6 +40,7 @@ function AddMedicine() {
   }
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
     fetch(
       "http://medtrack-env.eba-sqq54brs.us-east-1.elasticbeanstalk.com/User/AddMedicine",
       {
@@ -43,9 +50,10 @@ function AddMedicine() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          medicne: medName,
-          medicineDose: medDose,
-          medicineQuantity: quantity,
+          userID: userID,
+          medName: medName,
+          medDose: medDose,
+          quantity: quantity,
         }),
       }
     );
@@ -63,10 +71,19 @@ function AddMedicine() {
             Please enter your medication informations
           </h2>
           <h2>
-            It's important to type in the exact information here to avoid adverse
-            side effects
+            It's important to type in the exact information here to avoid
+            adverse side effects
           </h2>
           <div className="inner-form">
+            <div className="form-group">
+              <label htmlFor="userID">user ID#: </label>
+              <input
+                className="form-control form-control-md"
+                type="text"
+                name="userID"
+                onChange={UpdateuserID}
+              />
+            </div>
             <div className="form-group">
               <label htmlFor="name">name of medicine: </label>
               <input
