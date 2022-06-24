@@ -152,7 +152,7 @@ function DrugData() {
                 ` ${drug.manufacturer_name}`}
             </div> */}
             <span className="calen-div">
-          <h3>Daneil Calender goes here</h3>
+          <h3>Daniel Calender goes here</h3>
       </span>
             <div className="search-div">
             <h2>learn more about your drugs:</h2>
@@ -195,6 +195,10 @@ function DrugData() {
       </div>
       </div>
      
+      <Link className="navbar-brand" to={`/ReplenishQuantity`}>
+        {/* <button>{userEmail}</button> */}
+        <input type={"submit"} value={"Click to upload medications"} />
+      </Link>
 
     </div>
   );

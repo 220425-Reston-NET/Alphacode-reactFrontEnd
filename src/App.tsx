@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/homepage/HomePage';
@@ -10,7 +9,7 @@ import MedTrak from "./medtraklogo/medtrak.png";
 import InnerPageOne from "./pages/mainpages/InnerPageOne";
 import ContactUs from "./pages/contactus/ContactUs";
 import DrugData from "./pages/drugdata/DrugData";
-
+import ReplenishQuantity from "./pages/replenishmedicine/ReplenishQuantity";
 
 //import { Inject, ScheduleComponent, Day, Week, WorkWeek, Month, Agenda } from '@syncfusion/ej2-react-schedule';
 
@@ -37,8 +36,8 @@ function App() {
         <Route path="/mainpage" element={<InnerPageOne />} />
         <Route path="/help" element={<ContactUs/>} />
         <Route path="/drug" element={<DrugData/>} />
+        <Route path="/ReplenishQuantity" element={<ReplenishQuantity/>} />
         {/* <Route path="/model" element={<Drug/>} /> */}
-        
 
 
 
