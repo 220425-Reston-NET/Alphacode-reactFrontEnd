@@ -9,10 +9,9 @@ import MedTrak from "./medtraklogo/medtrak.png";
 import InnerPageOne from "./pages/mainpages/InnerPageOne";
 import ContactUs from "./pages/contactus/ContactUs";
 import DrugData from "./pages/drugdata/DrugData";
-import ReplenishQuantity from "./pages/replenishmedicine/ReplenishQuantity";
-
-//import { Inject, ScheduleComponent, Day, Week, WorkWeek, Month, Agenda } from '@syncfusion/ej2-react-schedule';
-
+import AddMedicine from "./pages/addmedicine/AddMedicine";
+// import DrugData from "./pages/drugdata/DrugData";
+import DisplayMed from "./pages/displaymeds/DisplayMed";
 
 function App() {
   const mainUser = {
@@ -21,8 +20,6 @@ function App() {
   }
   const [userinfo, setUserInfo] = useState({ name: "", email: "" });
   const [errormessage, setErroMessage] = useState("");
-
-
 
   return (
     <>
@@ -34,12 +31,11 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUpForm />} />
         <Route path="/mainpage" element={<InnerPageOne />} />
-        <Route path="/help" element={<ContactUs/>} />
-        <Route path="/drug" element={<DrugData/>} />
-        <Route path="/ReplenishQuantity" element={<ReplenishQuantity/>} />
+        <Route path="/help" element={<ContactUs />} />
+        <Route path="/drug" element={<DrugData />} />
         {/* <Route path="/model" element={<Drug/>} /> */}
-
-
+        <Route path="/addmeds" element={<AddMedicine />} />
+        <Route path="/dmeds" element={<DisplayMed  />} />
 
         <Route path="/about-paragraph" element={<HomePage />} />
       </Routes>

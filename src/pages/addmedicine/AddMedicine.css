@@ -1,0 +1,18 @@
+/* .add-med {
+  margin-top: 20rem;
+  padding: 30rem;
+} */
+
+/* .view-container{
+    margin-top: 20rem;
+    padding: 20rem;
+} */
+.add-form {
+  margin-top: 3rem;
+  padding: 5rem;
+}
+
+.addmed-welcom{
+  display: flex;
+  justify-content: center;
+}

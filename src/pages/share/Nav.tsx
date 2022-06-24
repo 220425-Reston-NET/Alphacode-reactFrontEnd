@@ -52,7 +52,7 @@ function Nav() {
             {/* adding inner pages on nav for testing purpose */}
             <li className="nav-item">
               <Link to="/login" className="nav-link">
-               <big> Login</big>
+                <big> Login</big>
               </Link>
             </li>
 
@@ -61,6 +61,12 @@ function Nav() {
                 {" "}
                 Page to show after log in
               </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/addmeds" className="nav-link"></Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/dmeds" className="nav-link"></Link>
             </li>
             {/* <li className="nav-item">
               <Link to="/mainpage" className="nav-link">  Iner paaaggee</Link>

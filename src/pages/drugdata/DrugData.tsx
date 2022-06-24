@@ -4,202 +4,125 @@ import { Link } from "react-router-dom";
 import { Drug } from "../drugmodel/Drug";
 import "./DrugData.css";
 
-// function DrugData() {
-//   const [drugs, setDrugs] = useState([]);
-//   const [filteredDrugs, setFiltered] = useState([]);
-
-//   function handleInputChange(event: any) {
-//     setFiltered(
-//       drugs.filter((drug: any) => {
-//         return drug.name.includes(event.target.value);
-//       })
-//     );
-//   }
-
-//   useEffect(() => {
-//     //i need to send an asynchronous request
-//     // https://pokeapi.co/api/v2/pokemon?limit=151
-//     async function getAllPokemon() {
-//       let response = await fetch(
-//           //drug_interactions:caffeine
-//         //   shows he list of active ingredients of a drug product.
-//         "https://api.fda.gov/drug/label.json?search=drug_interactions:caffeine&count=openfda.substance_name.exact"
-//       );
-//       console.log(response);
-
-//       let responseBody = await response.json();
-
-//       setDrugs(responseBody.results);
-//       setFiltered(responseBody.results);
-
-//       console.log(responseBody);
-//     }
-
-//     getAllPokemon();
-//   }, []);
-
-//   return (
-//     <div className=".view-container">
-//       <div className=".view-container">
-//         {/* <input type="text" onChange={handleInputChange} /> */}
-//         <div className="col-4">
-//           {/* <!-- Content --> */}
-//           <h1 id="medicinalproduct"> Adderall</h1>
-//           <div id="drugdosagetext">51°C</div>
-//           {/* <img src="" alt="" id="icon" /> */}
-//           <div id="brand_name">Brand name here</div>
-//           <div id="actiondrug">action drug here</div>
-//           <div id="product_type"> drug / product type here</div>
-//           <div id="route">drug route here</div>
-//           <div id="primarysource"> where drug is from</div>
-//           <div id="manufacturer_name"> who made it</div>
-//         </div>
-//       </div>
-
-//       <div className="view-container">
-//         {filteredDrugs.map((drug: any, index) => {
-//           return (
-//             <p
-//               className="poke-link"
-//               //   to={`/card?pokemon=${drug.name}`}
-//               key={index}
-//             >
-//               <h6>{drug.name}</h6>
-//             </p>
-//           );
-//         })}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default DrugData;
-
-// ------------- up down pick an delete one
-
 function DrugData() {
-  //need this to retrieve query param
-  let drugName = "";
-  let drugBrand = "";
-  let drugMaker = "";
-  const [drugs, setDrug] = useState([
+  // fetcthing user meds in db
+  let p_userID: any = 2;
+  const [users, setUser] = useState([
     {
-      medicinalproduct: "",
-      drugdosagetext: "",
-      primarysource: "",
-      brand_name: "",
-      drugcharacterization: "",
-      product_type: "",
-      route: "",
-      xmanufacturer_name: "",
+      p_userID: 0,
+      medID: 0,
+      medName: "string",
+      medDose: 0,
+      quantity: 0,
+      userID: 0,
+      //
     },
   ]);
 
-  function updateDrugName(e: React.ChangeEvent<HTMLInputElement>) {
-    drugName = e.target.value;
-    // console.log(pokeName);
+  function updateUserID(e: any) {
+    //+ sign will convert it to a number
+    p_userID = +e.target.value;
+
+    console.log(p_userID);
   }
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function onSubmit(e: any) {
     e.preventDefault();
-    fetch('https://api.fda.gov/drug/label.json?search=drug_interactions:caffeine&count=openfda.substance_name.exact'
+
+    fetch(
+      "http://medtrack-env.eba-sqq54brs.us-east-1.elasticbeanstalk.com/User/ViewAllMedicine?" +
+        new URLSearchParams({
+          p_userID: p_userID,
+        })
     )
       .then((response) => response.json())
-      .then((data) => console.log(data) );
-  } 
-      //   "https://api.fda.gov/drug/event.json?api_key=ZBlDery249OncKvRgxkWoZW30hQhizHMQS27sffQ&search=Oxycodone"
+      .then((users) => {
+        setUser((previousData) => users);
+      });
+  }
 
- // https://api.fda.gov/drug/label.json?search=drug_interactions:caffeine&count=openfda.substance_name.exact
-
- 
-  //   useEffect(() => {
-  //     // let drugName = searchParams.get("pokemon");
-  //     // https://api.fda.gov/drug/event.json?api_key=ZBlDery249OncKvRgxkWoZW30hQhizHMQS27sffQ&${drugName}
-
-  //     async function getOneDrug() {
-  //       let results = await fetch(
-  //         `https://api.fda.gov/drug/event.json?api_key=ZBlDery249OncKvRgxkWoZW30hQhizHMQS27sffQ&search=Oxycodone`
-  //       );
-  //       let responseBody = await results.json();
-
-  //       console.log(results);
-
-  //       setDrug(responseBody);
-  //     }
-
-  //     getOneDrug();
-  //   }, []);
-  // results.drug.blah
   return (
     <div className="view-container">
-        <div className="view-container">
-
-            <h2>user Info from db goes here</h2>
-        </div>
-            {/* <ul>
-            {drugs.map(drug => <li>{drug.medicinalproduct}</li>)}
-        </ul> */}
-        <div className="card">
-            {/* <div id="drug-name">
-            {drug.medicinalproduct +
-                ` ${drug.drugdosagetext}` +
-                ` ${drug.drugcharacterization}` +
-                ` ${drug.primarysource}` +
-                ` ${drug.brand_name}` +
-                ` ${drug.actiondrug}` +
-                ` ${drug.product_type}` +
-                ` ${drug.route}` +
-                ` ${drug.manufacturer_name}`}
-            </div> */}
-            <span className="calen-div">
-          <h3>Daniel Calender goes here</h3>
-      </span>
-            <div className="search-div">
-            <h2>learn more about your drugs:</h2>
-            <form onSubmit={onSubmit}>
-                <input
-                type="text"
-                name="drugName"
-                onChange={updateDrugName}
-                className="drug-search"
-                placeholder="name of a drug"
-                />
-                {/* <!-- my button  --> */}
-                <button
-                type="submit"
-                value="Submit"
-                id="search-btn"
-                className="btn btn-outline-secondary btn-secondary"
-                >
-                🔍
-                </button>
-            </form>
-            </div>
-            <div>
-                <h5>Search history:</h5>
-                <ul className="col-6 mb-3" id="ul"></ul>
-                </div>
-        <div className="col-4">
-        {/* <!-- Content --> */}
-        <h1 id="medicinalproduct"> Adderall</h1>
-            <div id="drugdosagetext">51°C</div>
-        {/* <img src="" alt="" id="icon" /> */}
-            <div id="brand_name">Brand name here</div>
-            <div id="actiondrug">action drug here</div>
-            <div id="product_type"> drug / product type here</div>
-     <div id="route">drug route here</div>
-     <div id="primarysource"> where drug is from</div>
-      <div id="manufacturer_name"> who made it</div>
-
-      
+      <div className="signout">
+        <Link className="signout-link" to={`/`}>
+          {/* <button>{userEmail}</button> */}
+          <input type={"submit"} value={"Sign Out"} />
+        </Link>
       </div>
-      </div>
-     
-      <Link className="navbar-brand" to={`/ReplenishQuantity`}>
+      <Link className="navbar-brand" to={`/addmeds`}>
         {/* <button>{userEmail}</button> */}
         <input type={"submit"} value={"Click to upload medications"} />
       </Link>
+      {/* displaying use meds container here */}
 
+      <div className="card">
+        <div className="display-med">
+          <form onSubmit={onSubmit}>
+            {/* </div>
+        <div> */}
+            <label>search for current medication:</label>
+            <input type="text" name="userID" onChange={updateUserID}></input>
+            <input type={"submit"} value={"search"} />
+          </form>
+          <ul>
+            <h2> User medications in the system:</h2>
+
+            {users.map((user) => (
+              <>
+                <div className="meds-in-db">
+                  <div>{"Medication name: " + user.medName}</div>
+                  <div>{"Medication ID: " + user.medID}</div>
+                  <div>{"Medication Dosage: " + user.medDose}</div>
+                  <div>{"Medication quantity: " + user.quantity}</div>
+                </div>
+              </>
+            ))}
+          </ul>
+        </div>
+        <br />
+        <br />
+        <div className="search-div">
+          <h2>Learn more about your drugs:</h2>
+          {/* onSubmit={onSubmit} */}
+          <form>
+            <input
+              type="text"
+              name="drugName"
+              // onChange={}
+              placeholder="name of a drug"
+            />
+            {/* <!-- my button  --> */}
+            <button
+              type="submit"
+              value="Submit"
+              id="search-btn"
+              className="btn btn-outline-secondary btn-secondary"
+            >
+              🔍
+            </button>
+          </form>
+        </div>
+        <div>
+          <h5>Search results:</h5>
+          <ul className="col-6 mb-3" id="ul"></ul>
+        </div>
+        <div className="col-4">
+          {/* <!-- Content --> */}
+          <h1 id="medicinalproduct"> Oxycodone</h1>
+          {/* <img src="" alt="" id="icon" /> */}
+          <div> Drug name: OXYCODONE</div>
+          <div id="brand_name">Brand name here:DOXYCYCLINE HYCLATE</div>
+          <div id="actiondrug">action drug here:</div>
+          <div id="product_type"> drug type here:HUMAN PRESCRIPTION DRUG</div>
+          <div id="route">drug route here: ORAL</div>
+          <div id="primarysource"> where drug is from: US</div>
+          <div id="manufacturer_name"> who made it:Mayne Pharma</div>
+        </div>
+      </div>
+      <Link className="navbar-brand" to={``}>
+        {/* <button>{userEmail}</button> */}
+        <input type={"submit"} value={"Click to set a reminder⏰"} />
+      </Link>
     </div>
   );
 }
