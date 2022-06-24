@@ -4,140 +4,37 @@ import { Link } from "react-router-dom";
 import { Drug } from "../drugmodel/Drug";
 import "./DrugData.css";
 
-// function DrugData() {
-//   const [drugs, setDrugs] = useState([]);
-//   const [filteredDrugs, setFiltered] = useState([]);
-
-//   function handleInputChange(event: any) {
-//     setFiltered(
-//       drugs.filter((drug: any) => {
-//         return drug.name.includes(event.target.value);
-//       })
-//     );
-//   }
-
-//   useEffect(() => {
-//     //i need to send an asynchronous request
-//     // https://pokeapi.co/api/v2/pokemon?limit=151
-//     async function getAllPokemon() {
-//       let response = await fetch(
-//           //drug_interactions:caffeine
-//         //   shows he list of active ingredients of a drug product.
-//         "https://api.fda.gov/drug/label.json?search=drug_interactions:caffeine&count=openfda.substance_name.exact"
-//       );
-//       console.log(response);
-
-//       let responseBody = await response.json();
-
-//       setDrugs(responseBody.results);
-//       setFiltered(responseBody.results);
-
-//       console.log(responseBody);
-//     }
-
-//     getAllPokemon();
-//   }, []);
-
-//   return (
-//     <div className=".view-container">
-//       <div className=".view-container">
-//         {/* <input type="text" onChange={handleInputChange} /> */}
-//         <div className="col-4">
-//           {/* <!-- Content --> */}
-//           <h1 id="medicinalproduct"> Adderall</h1>
-//           <div id="drugdosagetext">51°C</div>
-//           {/* <img src="" alt="" id="icon" /> */}
-//           <div id="brand_name">Brand name here</div>
-//           <div id="actiondrug">action drug here</div>
-//           <div id="product_type"> drug / product type here</div>
-//           <div id="route">drug route here</div>
-//           <div id="primarysource"> where drug is from</div>
-//           <div id="manufacturer_name"> who made it</div>
-//         </div>
-//       </div>
-
-//       <div className="view-container">
-//         {filteredDrugs.map((drug: any, index) => {
-//           return (
-//             <p
-//               className="poke-link"
-//               //   to={`/card?pokemon=${drug.name}`}
-//               key={index}
-//             >
-//               <h6>{drug.name}</h6>
-//             </p>
-//           );
-//         })}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default DrugData;
-
-// ------------- up down pick an delete one
-
 function DrugData() {
-  //need this to retrieve query param
-  let drugName = "";
-  let drugBrand = "";
-  let drugMaker = "";
-  const [drugs, setDrug] = useState([
+// fetcthing user meds in db
+  let p_userID: any = 2;
+  const [users, setUser] = useState([
     {
-      medicinalproduct: "",
-      drugdosagetext: "",
-      primarysource: "",
-      brand_name: "",
-      drugcharacterization: "",
-      product_type: "",
-      route: "",
-      xmanufacturer_name: "",
+      p_userID: 2,
+      //
     },
   ]);
 
-  function updateDrugName(e: React.ChangeEvent<HTMLInputElement>) {
-    drugName = e.target.value;
-    // console.log(pokeName);
+  function updateUserID(e: any) {
+    //+ sign will convert it to a number
+    p_userID = +e.target.value;
+
+    console.log(p_userID);
   }
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-
-    e.preventDefault();
+  function onSubmit(e: any) {
+    // e.preventDefault();
 
     fetch(
-         "https://api.fda.gov/drug/event.json?api_key=ZBlDery249OncKvRgxkWoZW30hQhizHMQS27sffQ&search=Oxycodone", {
-
-          method: 'Get',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(
-            {
-            name: drugName, 
-           
-          })
-         }   )
-
-    // _-----------
-
-
-    // fetch(
-    //   "https://api.fda.gov/drug/event.json?api_key=ZBlDery249OncKvRgxkWoZW30hQhizHMQS27sffQ&search=Oxycodone"
-    // )
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     setDrug((previousData) => drugs);
-    //   });
+      "http://medtrack-env.eba-sqq54brs.us-east-1.elasticbeanstalk.com/User/ViewAllMedicine?" +
+        new URLSearchParams({
+          userID: p_userID,
+        })
+    )
+      .then((response) => response.json())
+      .then((users) => {
+        setUser((previousData) => users);
+      });
   }
-  // [];
-  //   "https://api.fda.gov/drug/event.json?api_key=ZBlDery249OncKvRgxkWoZW30hQhizHMQS27sffQ&search=Oxycodone"
-
-  // https://api.fda.gov/drug/label.json?search=drug_interactions:caffeine&count=openfda.substance_name.exact
-
-  //  https://api.fda.gov/drug/event.json?api_key=ZBlDery249OncKvRgxkWoZW30hQhizHMQS27sffQ&${drugName}
-
-  // `https://api.fda.gov/drug/event.json?api_key=ZBlDery249OncKvRgxkWoZW30hQhizHMQS27sffQ&search=Oxycodone`
 
   return (
     <div className="view-container">
@@ -145,22 +42,35 @@ function DrugData() {
         {/* <button>{userEmail}</button> */}
         <input type={"submit"} value={"Click to upload medications"} />
       </Link>
+      {/* displaying use meds container here */}
+      <div className="display-med">
+      <ul>
+        {users.map((med) => (
+          <p>{med.p_userID}</p>
+        ))}
+      </ul>
+      <div>
+        <form onSubmit={onSubmit}></form>
+      </div>
+      <div>
+        <label>User current medication:</label>
+        <input type="text" name="userID" onChange={updateUserID}></input>
+        <input type={"submit"} value={"search"} />
+      </div>
+    </div>
       <div className="view-container">
         <h2>user Info from db goes here</h2>
       </div>
-      <ul>
-        {drugs.map((drug) => (
-          <li>{drug.medicinalproduct}</li>
-        ))}
-      </ul>
+      
       <div className="card">
         <div className="search-div">
           <h2>learn more about your drugs:</h2>
-          <form onSubmit={onSubmit}>
+          {/* onSubmit={onSubmit} */}
+           <form >
             <input
               type="text"
               name="drugName"
-              onChange={updateDrugName}
+              // onChange={}
               placeholder="name of a drug"
             />
             {/* <!-- my button  --> */}
@@ -172,7 +82,7 @@ function DrugData() {
             >
               🔍
             </button>
-          </form>
+           </form>  
         </div>
         <div>
           <h5>Search history:</h5>
@@ -193,6 +103,9 @@ function DrugData() {
       </div>
     </div>
   );
-}
+
+ }
+ 
+  
 
 export default DrugData;

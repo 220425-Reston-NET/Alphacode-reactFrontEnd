@@ -46,7 +46,7 @@ function Login() {
 
   const navigate = useNavigate();
   const goToNewCustInfo = () => {
-    navigate("/DrugData");
+    navigate("/Drug");
   };
 
   //   async function getUserLoginInfo() {

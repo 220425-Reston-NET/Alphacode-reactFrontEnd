@@ -11,7 +11,8 @@ import ContactUs from "./pages/contactus/ContactUs";
 import InnerPageOne from "./pages/mainpages/InnerPageOne";
 import DrugData from "./pages/drugdata/DrugData";
 import AddMedicine from "./pages/addmedicine/AddMedicine";
-import Drug from "./pages/drugdata/DrugData";
+// import DrugData from "./pages/drugdata/DrugData";
+import DisplayMed from "./pages/displaymeds/DisplayMed";
 
 function App() {
   // const mainUser = {
@@ -39,6 +40,7 @@ function App() {
         <Route path="/drug" element={<DrugData />} />
         {/* <Route path="/model" element={<Drug/>} /> */}
         <Route path="/addmeds" element={<AddMedicine />} />
+        <Route path="/dmeds" element={<DisplayMed  />} />
 
         <Route path="/about-paragraph" element={<HomePage />} />
       </Routes>
