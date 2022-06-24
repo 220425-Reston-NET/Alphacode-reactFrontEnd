@@ -1,53 +1,70 @@
 import React, { useState } from "react";
-// import "./DisplayMed.css";
+import "./DisplayMed.css";
 function DisplayMed() {
-  let p_userID: any = 2;
-  const [users, setUser] = useState([
+  let search: any = "";
+  const [drugs, setDrugs] = useState([
     {
-      p_userID: 2,
+      search: "",
+      medicinalproduct: "",
+      drugdosagetext: "",
+      brand_name: "",
+      manufacturer_name: "",
+      roduct_type: "",
+      route: [],
+
       //
     },
   ]);
-
-  function updateUserID(e: any) {
+  // React.ChangeEvent<HTMLInputElement>
+  function updateDrugSearch(e: any) {
     //+ sign will convert it to a number
-    p_userID = +e.target.value;
+    search = e.target.value;
 
-    console.log(p_userID);
+    console.log(search);
   }
   //   React.FormEvent<HTMLFormElement>
+  // React.FormEvent<HTMLFormElement>
 
   function onSubmit(e: any) {
-    // e.preventDefault();
+    e.preventDefault();
+    // https://api.fda.gov/drug/event.json?search=Acetaminophen
+    // api_key=ZBlDery249OncKvRgxkWoZW30hQhizHMQS27sffQ&
 
     fetch(
-      "http://medtrack-env.eba-sqq54brs.us-east-1.elasticbeanstalk.com/User/ViewAllMedicine?" +
+      "https://api.fda.gov/drug/event.json?search" +
         new URLSearchParams({
-          userID: p_userID,
+          search: search,
         })
     )
       .then((response) => response.json())
-      .then((users) => {
-        setUser((previousData) => users);
+      .then((drugs) => {
+        setDrugs((previousData) => drugs);
       });
   }
-  return (<>
-  
-    <div className="display-med">
-      <ul>
-        {users.map((med) => (
-          <p>{med.p_userID}</p>
-        ))}
-      </ul>
-      <div>
-        <form onSubmit={onSubmit}></form>
+  return (
+    <>
+      <div className="display-med">
+        <div className="inner-display-med">
+          <ul>
+            {drugs.map((med) => (
+              // results.drug
+              <p>{med.search}</p>
+            ))}
+          </ul>
+          <div>
+            <form onSubmit={onSubmit}></form>
+          </div>
+          <div>
+            <label>User current medication:</label>
+            <input
+              type="text"
+              name="userID"
+              onChange={updateDrugSearch}
+            ></input>
+            <input type={"submit"} value={"search"} />
+          </div>
+        </div>
       </div>
-      <div>
-        <label>User current medication:</label>
-        <input type="text" name="userID" onChange={updateUserID}></input>
-        <input type={"submit"} value={"search"} />
-      </div>
-    </div>
     </>
   );
 }
