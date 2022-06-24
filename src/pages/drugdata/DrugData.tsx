@@ -9,7 +9,12 @@ function DrugData() {
   let p_userID: any = 2;
   const [users, setUser] = useState([
     {
-      p_userID: 2,
+      p_userID: 0,
+      medID: 0,
+      medName: "string",
+      medDose: 0,
+      quantity: 0,
+      userID: 0,
       //
     },
   ]);
@@ -27,7 +32,7 @@ function DrugData() {
     fetch(
       "http://medtrack-env.eba-sqq54brs.us-east-1.elasticbeanstalk.com/User/ViewAllMedicine?" +
         new URLSearchParams({
-          userID: p_userID,
+          p_userID: p_userID,
         })
     )
       .then((response) => response.json())
@@ -52,22 +57,32 @@ function DrugData() {
 
       <div className="card">
         <div className="display-med">
-          <ul>
-            {users.map((med) => (
-              <p>{med.p_userID}</p>
-            ))}
-          </ul>
-          <h2> user Info from db goes here</h2>
           <form onSubmit={onSubmit}>
             {/* </div>
         <div> */}
-            <label>User current medication:</label>
+            <label>search for current medication:</label>
             <input type="text" name="userID" onChange={updateUserID}></input>
             <input type={"submit"} value={"search"} />
           </form>
+          <ul>
+            <h2> User medications in the system:</h2>
+
+            {users.map((user) => (
+              <>
+                <div className="meds-in-db">
+                  <div>{"Medication name: " + user.medName}</div>
+                  <div>{"Medication ID: " + user.medID}</div>
+                  <div>{"Medication Dosage: " + user.medDose}</div>
+                  <div>{"Medication quantity: " + user.quantity}</div>
+                </div>
+              </>
+            ))}
+          </ul>
         </div>
+        <br />
+        <br />
         <div className="search-div">
-          <h2>learn more about your drugs:</h2>
+          <h2>Learn more about your drugs:</h2>
           {/* onSubmit={onSubmit} */}
           <form>
             <input
@@ -104,6 +119,10 @@ function DrugData() {
           <div id="manufacturer_name"> who made it:Mayne Pharma</div>
         </div>
       </div>
+      <Link className="navbar-brand" to={``}>
+        {/* <button>{userEmail}</button> */}
+        <input type={"submit"} value={"Click to set a reminder⏰"} />
+      </Link>
     </div>
   );
 }

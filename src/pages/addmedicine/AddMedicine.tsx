@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./AddMedicine.css";
 
 function AddMedicine() {
@@ -55,9 +56,20 @@ function AddMedicine() {
           medDose: medDose,
           quantity: quantity,
         }),
+        
+
       }
+      
     );
+    goToNewCustInfo();
+    
   }
+
+  const navigate = useNavigate();
+  const goToNewCustInfo = () => {
+    navigate("/Drug");
+  };
+
 
   return (
     <>

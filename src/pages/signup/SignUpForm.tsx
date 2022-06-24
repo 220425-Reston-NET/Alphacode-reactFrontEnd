@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./SignUpForm.css";
 
 function SignUpForm() {
@@ -62,7 +63,14 @@ function SignUpForm() {
         }),
       }
     );
+
+    goToNewCustInfo();
   }
+
+  const navigate = useNavigate();
+  const goToNewCustInfo = () => {
+    navigate("/login");
+  };
 
   // useEffect(() => {
   //   // http://medtrack-env.eba-sqq54brs.us-east-1.elasticbeanstalk.com/

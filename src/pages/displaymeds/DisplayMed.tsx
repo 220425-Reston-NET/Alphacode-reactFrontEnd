@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./DisplayMed.css";
+// import "./DisplayMed.css";
 function DisplayMed() {
   let p_userID: any = 2;
   const [users, setUser] = useState([
