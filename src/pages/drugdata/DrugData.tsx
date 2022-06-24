@@ -43,7 +43,7 @@ function DrugData() {
         <input type={"submit"} value={"Click to upload medications"} />
       </Link>
       {/* displaying use meds container here */}
-      <div className="display-med">
+       <div className="display-med">
       <ul>
         {users.map((med) => (
           <p>{med.p_userID}</p>
