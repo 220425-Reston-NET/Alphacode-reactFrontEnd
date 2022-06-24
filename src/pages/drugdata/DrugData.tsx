@@ -5,7 +5,7 @@ import { Drug } from "../drugmodel/Drug";
 import "./DrugData.css";
 
 function DrugData() {
-// fetcthing user meds in db
+  // fetcthing user meds in db
   let p_userID: any = 2;
   const [users, setUser] = useState([
     {
@@ -22,7 +22,7 @@ function DrugData() {
   }
 
   function onSubmit(e: any) {
-    // e.preventDefault();
+    e.preventDefault();
 
     fetch(
       "http://medtrack-env.eba-sqq54brs.us-east-1.elasticbeanstalk.com/User/ViewAllMedicine?" +
@@ -38,35 +38,38 @@ function DrugData() {
 
   return (
     <div className="view-container">
+      <div className="signout">
+        <Link className="signout-link" to={`/`}>
+          {/* <button>{userEmail}</button> */}
+          <input type={"submit"} value={"Sign Out"} />
+        </Link>
+      </div>
       <Link className="navbar-brand" to={`/addmeds`}>
         {/* <button>{userEmail}</button> */}
         <input type={"submit"} value={"Click to upload medications"} />
       </Link>
       {/* displaying use meds container here */}
-       <div className="display-med">
-      <ul>
-        {users.map((med) => (
-          <p>{med.p_userID}</p>
-        ))}
-      </ul>
-      <div>
-        <form onSubmit={onSubmit}></form>
-      </div>
-      <div>
-        <label>User current medication:</label>
-        <input type="text" name="userID" onChange={updateUserID}></input>
-        <input type={"submit"} value={"search"} />
-      </div>
-    </div>
-      <div className="view-container">
-        <h2>user Info from db goes here</h2>
-      </div>
-      
+
       <div className="card">
+        <div className="display-med">
+          <ul>
+            {users.map((med) => (
+              <p>{med.p_userID}</p>
+            ))}
+          </ul>
+          <h2> user Info from db goes here</h2>
+          <form onSubmit={onSubmit}>
+            {/* </div>
+        <div> */}
+            <label>User current medication:</label>
+            <input type="text" name="userID" onChange={updateUserID}></input>
+            <input type={"submit"} value={"search"} />
+          </form>
+        </div>
         <div className="search-div">
           <h2>learn more about your drugs:</h2>
           {/* onSubmit={onSubmit} */}
-           <form >
+          <form>
             <input
               type="text"
               name="drugName"
@@ -82,30 +85,27 @@ function DrugData() {
             >
               🔍
             </button>
-           </form>  
+          </form>
         </div>
         <div>
-          <h5>Search history:</h5>
+          <h5>Search results:</h5>
           <ul className="col-6 mb-3" id="ul"></ul>
         </div>
         <div className="col-4">
           {/* <!-- Content --> */}
-          <h1 id="medicinalproduct"> Adderall</h1>
-          <div id="drugdosagetext">51°C</div>
+          <h1 id="medicinalproduct"> Oxycodone</h1>
           {/* <img src="" alt="" id="icon" /> */}
-          <div id="brand_name">Brand name here</div>
-          <div id="actiondrug">action drug here</div>
-          <div id="product_type"> drug / product type here</div>
-          <div id="route">drug route here</div>
-          <div id="primarysource"> where drug is from</div>
-          <div id="manufacturer_name"> who made it</div>
+          <div> Drug name: OXYCODONE</div>
+          <div id="brand_name">Brand name here:DOXYCYCLINE HYCLATE</div>
+          <div id="actiondrug">action drug here:</div>
+          <div id="product_type"> drug type here:HUMAN PRESCRIPTION DRUG</div>
+          <div id="route">drug route here: ORAL</div>
+          <div id="primarysource"> where drug is from: US</div>
+          <div id="manufacturer_name"> who made it:Mayne Pharma</div>
         </div>
       </div>
     </div>
   );
-
- }
- 
-  
+}
 
 export default DrugData;

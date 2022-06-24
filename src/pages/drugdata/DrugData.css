@@ -1,11 +1,39 @@
-.view-container{
-    margin-top: 8rem;
-    padding: 10rem;
+.view-container {
+  margin-top: 3rem;
+  padding: 5.5rem;
+  /* background-color: blue; */
 }
 
-.drug-search{
-    width: 20%;
-    padding: 10px;
-    margin: 2rem;
-    border-radius: 6px;
+.drug-search {
+  /* width: 20%;
+  padding: 10px;
+  margin: 2rem;
+  border-radius: 6px; */
+}
+.signout-link {
+  background-color: red;
+}
+
+.signout {
+  display: flex;
+  justify-self: start;
+  align-items: flex-start;
+  padding: 4px;
+}
+
+.display-med {
+  /* background-color: rgb(75, 75, 228); */
+  /* left: 4rem;
+    width: 20rem;
+    height: 1px; */
+  /* border: 3px solid green; */
+  /* display: flex;
+  justify-content: end;
+  align-items: flex-end; */
+}
+.card {
+  background-color: rgb(171, 194, 214);
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
 }

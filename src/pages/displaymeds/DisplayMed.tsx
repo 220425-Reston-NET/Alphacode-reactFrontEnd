@@ -31,7 +31,8 @@ function DisplayMed() {
         setUser((previousData) => users);
       });
   }
-  return (
+  return (<>
+  
     <div className="display-med">
       <ul>
         {users.map((med) => (
@@ -47,6 +48,7 @@ function DisplayMed() {
         <input type={"submit"} value={"search"} />
       </div>
     </div>
+    </>
   );
 }
 
