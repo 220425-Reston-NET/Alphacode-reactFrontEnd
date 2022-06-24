@@ -8,8 +8,10 @@ function ReplenishQuantity() {
         const [medicine, setMeds] = useState([
             {
                 medID: 0,
-                medQuantitiy: 0,
-                medDose: 0
+                medName: "",
+                medDose: 0,
+                quantitiy: 0,
+                userID: 0,
             },
         ]);
     
@@ -40,8 +42,10 @@ function ReplenishQuantity() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
+                    
                     quantity: medicineQuantity,
                     dose: medicineDose, 
+                    
                 }),
             }
         );
