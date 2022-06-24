@@ -1,4 +1,5 @@
 export interface Drug{
+    id: any;
     name : string;
     // id: number;
     drugcharacterization : string;

@@ -59,15 +59,20 @@ function Nav() {
             <li className="nav-item">
               <Link to="/drug" className="nav-link">
                 {" "}
-                Page to show after log in
+                {/* Page to show after log in */}
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/addmeds" className="nav-link"></Link>
+              <Link to="/addmeds" className="nav-link">
+                {/* External Api1 */}
+              </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/dmeds" className="nav-link"></Link>
-            </li>
+            {/* <li className="nav-item">
+              <Link to="/apimed" className="nav-link">
+                {" "}
+                External Api2
+              </Link>
+            </li> */}
             {/* <li className="nav-item">
               <Link to="/mainpage" className="nav-link">  Iner paaaggee</Link>
             </li> */}

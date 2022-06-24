@@ -12,6 +12,7 @@ import DrugData from "./pages/drugdata/DrugData";
 import AddMedicine from "./pages/addmedicine/AddMedicine";
 // import DrugData from "./pages/drugdata/DrugData";
 import DisplayMed from "./pages/displaymeds/DisplayMed";
+import DisplayApi from "./newdisplaymeds/DisplayApi";
 
 function App() {
   const mainUser = {
@@ -36,6 +37,8 @@ function App() {
         {/* <Route path="/model" element={<Drug/>} /> */}
         <Route path="/addmeds" element={<AddMedicine />} />
         <Route path="/dmeds" element={<DisplayMed  />} />
+        {/* <Route path="/apimed" element={<DisplayApi  />} /> */}
+
 
         <Route path="/about-paragraph" element={<HomePage />} />
       </Routes>
