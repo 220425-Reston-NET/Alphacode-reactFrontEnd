@@ -37,9 +37,9 @@
 }
 
 footer{
-  background-color: rgb(214, 30, 30);
+  /* background-color: rgb(214, 30, 30); */
   display: flex;
-  justify-content: center;
+  justify-content:  center;
 }
 /* .image{
     padding: 10px;

@@ -3,12 +3,36 @@
     padding: 2rem;
 } */
 
-.display-med{
-    /* margin: 10rem; */
-    /* padding: 10rem;   */
+.display-med {
+  margin: 6rem;
+  padding: 5.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.inner-display-med{
-    margin: 2rem;
-    padding: 10rem; 
+.display-med2 {
+  /* background-color: rgb(171, 194, 214); */
+  /*  */
+  width: 35rem;
+}
+
+.ul {
+  width: 45rem;
+
+  background-color: rgb(255, 255, 255);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: bolder;
+  /* height: 40rem; */
+}
+
+.inputclass {
+  background-color: rgb(21, 21, 54);
+  color: aliceblue;
+}
+
+.thefooter {
+  /* background-color: rgb(214, 30, 30); */
+  display: flex;
+  justify-content: baseline;
 }

@@ -60,7 +60,7 @@ function DrugData() {
           <form onSubmit={onSubmit}>
             {/* </div>
         <div> */}
-            <label>search for current medication:</label>
+            <label>search for current medication with your ID:</label>
             <input type="text" name="userID" onChange={updateUserID}></input>
             <input type={"submit"} value={"search"} />
           </form>
@@ -82,47 +82,20 @@ function DrugData() {
         <br />
         <br />
         <div className="search-div">
-          <h2>Learn more about your drugs:</h2>
+          <h2>Learn more about your medications:</h2>
           {/* onSubmit={onSubmit} */}
-          <form>
-            <input
-              type="text"
-              name="drugName"
-              // onChange={}
-              placeholder="name of a drug"
-            />
-            {/* <!-- my button  --> */}
-            <button
-              type="submit"
-              value="Submit"
-              id="search-btn"
-              className="btn btn-outline-secondary btn-secondary"
-            >
-              🔍
-            </button>
-          </form>
-        </div>
-        <div>
-          <h5>Search results:</h5>
-          <ul className="col-6 mb-3" id="ul"></ul>
-        </div>
-        <div className="col-4">
-          {/* <!-- Content --> */}
-          <h1 id="medicinalproduct"> Oxycodone</h1>
-          {/* <img src="" alt="" id="icon" /> */}
-          <div> Drug name: OXYCODONE</div>
-          <div id="brand_name">Brand name here:DOXYCYCLINE HYCLATE</div>
-          <div id="actiondrug">action drug here:</div>
-          <div id="product_type"> drug type here:HUMAN PRESCRIPTION DRUG</div>
-          <div id="route">drug route here: ORAL</div>
-          <div id="primarysource"> where drug is from: US</div>
-          <div id="manufacturer_name"> who made it:Mayne Pharma</div>
+          <Link className="signout-link" to={`/dmeds`}>
+            {/* <button>{userEmail}</button> */}
+            <input type={"submit"} value={"learn"} />
+          </Link>
+          <h2>Click to set a reminder⏰:</h2>
+
+          <Link className="signout-link" to={`/Scheduler`}>
+            {/* <button>{userEmail}</button> */}
+            <input type={"submit"} value={"Reminder"} />
+          </Link>
         </div>
       </div>
-      <Link className="navbar-brand" to={``}>
-        {/* <button>{userEmail}</button> */}
-        <input type={"submit"} value={"Click to set a reminder⏰"} />
-      </Link>
     </div>
   );
 }

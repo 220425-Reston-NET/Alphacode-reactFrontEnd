@@ -3,6 +3,7 @@ import './Scheduler.css';
 import 'react-calendar/dist/Calendar.css';
 import Calendar from 'react-calendar';
 import { Agenda, Day, Inject, Month, ScheduleComponent, Week, WorkWeek } from '@syncfusion/ej2-react-schedule';
+// import { Agenda, Day, Inject, Month, ScheduleComponent, Week, WorkWeek } from '@syncfusion/ej2-react-schedule';
 
 function Scheduler() {
     const [value, onChange] = useState(new Date());

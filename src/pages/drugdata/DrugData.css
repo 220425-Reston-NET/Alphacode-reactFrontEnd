@@ -37,3 +37,8 @@
   justify-content: start;
   align-items: flex-start;
 }
+
+.meds-in-db {
+  bottom: 4px;
+  background-color: rgb(255, 255, 255);
+}

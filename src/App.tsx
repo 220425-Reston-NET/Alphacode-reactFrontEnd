@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import './App.css';
-import { Route, Routes } from 'react-router-dom';
-import HomePage from './pages/homepage/HomePage';
-import Login from './pages/loginpage/Login';
-import SignUpForm from './pages/signup/SignUpForm';
-import Nav from './pages/share/Nav';
+import { useState } from "react";
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/homepage/HomePage";
+import Login from "./pages/loginpage/Login";
+import SignUpForm from "./pages/signup/SignUpForm";
+import Nav from "./pages/share/Nav";
 import MedTrak from "./medtraklogo/medtrak.png";
 import InnerPageOne from "./pages/mainpages/InnerPageOne";
 import ContactUs from "./pages/contactus/ContactUs";
@@ -12,13 +12,14 @@ import DrugData from "./pages/drugdata/DrugData";
 import AddMedicine from "./pages/addmedicine/AddMedicine";
 // import DrugData from "./pages/drugdata/DrugData";
 import DisplayMed from "./pages/displaymeds/DisplayMed";
-import DisplayApi from "./newdisplaymeds/DisplayApi";
+// import DisplayApi from "./pages/newdisplaymeds/DisplayApi";
+import Scheduler from "./pages/calendar/Scheduler";
 
 function App() {
   const mainUser = {
     email: "kabba@kabba.com",
-    password: "kabba123"
-  }
+    password: "kabba123",
+  };
   const [userinfo, setUserInfo] = useState({ name: "", email: "" });
   const [errormessage, setErroMessage] = useState("");
 
@@ -36,10 +37,8 @@ function App() {
         <Route path="/drug" element={<DrugData />} />
         {/* <Route path="/model" element={<Drug/>} /> */}
         <Route path="/addmeds" element={<AddMedicine />} />
-        <Route path="/dmeds" element={<DisplayMed  />} />
-        {/* <Route path="/apimed" element={<DisplayApi  />} /> */}
-
-
+        <Route path="/dmeds" element={<DisplayMed />} />
+        <Route path="/Scheduler" element={<Scheduler />} />
         <Route path="/about-paragraph" element={<HomePage />} />
       </Routes>
     </>

@@ -67,12 +67,17 @@ function Nav() {
                 {/* External Api1 */}
               </Link>
             </li>
-            {/* <li className="nav-item">
-              <Link to="/apimed" className="nav-link">
-                {" "}
-                External Api2
+            <li className="nav-item">
+              <Link to="/Scheduler" className="nav-link">
+                {/* External Api1 */}
               </Link>
-            </li> */}
+            </li>
+            <li className="nav-item">
+              <Link to="/dmeds" className="nav-link">
+                {" "}
+                {/* External Api2 */}
+              </Link>
+            </li>
             {/* <li className="nav-item">
               <Link to="/mainpage" className="nav-link">  Iner paaaggee</Link>
             </li> */}
