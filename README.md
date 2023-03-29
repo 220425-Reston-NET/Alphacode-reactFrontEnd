@@ -1,59 +1,24 @@
 Medications can improve the lives of people who suffer from chronic conditions, such as diabetes, high blood pressure, high cholesterol, cancer, mental illness and chronic pain. However, not taking your medicines as prescribed can be risky.
 
+
+
 # As a user on a different medications
 
-I would like to receive an alert/ notifcation to take my medication
-I would like tp upload my medication information and get an alert according to that iforamtion
-I would like to be able to refill my prescibtion through the app
+This app is developed as your personal pharmacists to help you with your medication intake.
+A new user will have the option to create an account.
+An existing user will be able to log in with their credentials.
+If you are a new user, the aplication will ask you to add you medications (CREATE).
+If you are an existing user, you will have the option to view your medications (READ).
+If you meds run out, you can add refills or change your medications (UPDATE).
+If you are no longer on a medication, you can remove or delete that medicine (DELETE).
 
-project in progress..
-some of these features have yet to exist
+I use will be able to look up their medication information by typing the name on the search bar.
 
-## React Instruction
+User will be presented with drug's safety/adverse event, Routes of administration, Temperature excursion,  Ingredients/excipients and so on..
 
-# Getting Started with Create React App
+This app uses FDA API to get prescription drugs data.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+  
