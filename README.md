@@ -15,6 +15,7 @@ If you are no longer on a medication, you can remove or delete that medicine (DE
 I use will be able to look up their medication information by typing the name on the search bar.
 
 User will be presented with drug's safety/adverse event, Routes of administration, Temperature excursion,  Ingredients/excipients and so on..
+![](public/images/medtrak.png)
 
 This app uses FDA API to get prescription drugs data.
 
