@@ -33,8 +33,10 @@ input {
   justify-content: center;
 } */
 .inner-form {
+  padding: 50px;
+  margin: 40px;
   width: 450px;
-  height: 520px;
+  height: 360px;
   margin: auto;
   border-radius: 4px;
   /* SAME AS 16px */

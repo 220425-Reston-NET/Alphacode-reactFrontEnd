@@ -149,12 +149,12 @@ function SignUpForm() {
         </div>
       </form>
 
-      <div className="terms-div">
+      {/* <div className="terms-div">
         <p className="siignup-terms">
           By clicking the Submit button, you agree that you're awesome
           <a href="#">awesome terms and condition</a>
         </p>
-      </div>
+      </div> */}
     </>
   );
 }
