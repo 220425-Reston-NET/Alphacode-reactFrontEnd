@@ -18,6 +18,8 @@ User will be presented with drug's safety/adverse event, Routes of administratio
 ![](public/images/medtrak.png)
 
 This app uses FDA API to get prescription drugs data.
+This was a group project I contributed to, I was in charge of the frontend.
+this is the backend repo https://github.com/220425-Reston-NET/Alpha_Code_P2
 
 
 
